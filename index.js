@@ -21,6 +21,7 @@ const app = express();
 //prove activities
 
 const pr01Routes = require('./routes/pr01');
+const pr02Routes = require('./routes/prove02');
 
 // Route setup. You can implement more in the future!
 const ta01Routes = require('./routes/ta01');
@@ -40,6 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')))
     .use('/ta01', ta01Routes)
     .use('/pr01', pr01Routes)
     .use('/ta02', ta02Routes)
+    .use('/pr02', pr02Routes)
     .use('/ta03', ta03Routes)
     .use('/ta04', ta04Routes)
     .get('/', (req, res, next) => {
