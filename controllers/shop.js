@@ -1,5 +1,5 @@
 const Product = require('../models/product');
-
+const ITEMS_PER_PAGE = 10;
 exports.getProducts = (req, res, next) => {
     Product.fetchAll()
         .then(products => {
@@ -37,8 +37,11 @@ exports.getProduct = (req, res, next) => {
 };
 
 exports.getIndex = (req, res, next) => {
+    const page = req.query.page;
+
     Product.fetchAll()
-        .then(products => {
+
+    .then(products => {
             res.render('shop/index', {
                 prods: products,
                 pageTitle: 'Shop',
